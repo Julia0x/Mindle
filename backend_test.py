@@ -508,8 +508,8 @@ class FirebaseAuthTester:
             }
             
             # Test server creation
-            response = requests.post(
-                f"{self.firestore_url}/servers",
+            response = requests.patch(
+                f"{self.firestore_url}/servers/{int(time.time())}",
                 json=server_data,
                 headers={"Authorization": f"Bearer {self.user_id_token}"}
             )
