@@ -39,7 +39,7 @@ const RegisterPage: React.FC = () => {
 
     try {
       await register(formData.email, formData.password, formData.firstName, formData.lastName);
-      navigate('/dashboard');
+      navigate('/verify-email');
     } catch (error: any) {
       setError(error.message || 'Failed to create account');
     } finally {
