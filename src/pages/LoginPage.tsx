@@ -23,6 +23,7 @@ const LoginPage: React.FC = () => {
 
     try {
       await login(formData.email, formData.password);
+      // ProtectedRoute will handle the verification check and redirect
       navigate('/dashboard');
     } catch (error: any) {
       setError(error.message || 'Failed to sign in');
