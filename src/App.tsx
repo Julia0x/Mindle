@@ -23,6 +23,7 @@ function App() {
               <Route path="/" element={<Layout><HomePage /></Layout>} />
               <Route path="/login" element={<LoginPage />} />
               <Route path="/register" element={<RegisterPage />} />
+              <Route path="/verify-email" element={<EmailVerificationPage />} />
               <Route 
                 path="/dashboard" 
                 element={
