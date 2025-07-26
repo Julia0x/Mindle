@@ -1,0 +1,163 @@
+{
+  "total_tests": 9,
+  "passed": 5,
+  "failed": 4,
+  "success_rate": 55.55555555555556,
+  "critical_issues": [
+    {
+      "test": "User Profile Creation",
+      "success": false,
+      "message": "Failed to create user profile: {\n  \"error\": {\n    \"code\": 400,\n    \"message\": \"Document parent name \\\"projects/hhhh-1c48d/databases/(default)/documents/users\\\" lacks \\\"/\\\" at index 55.\",\n    \"status\": \"INVALID_ARGUMENT\"\n  }\n}\n",
+      "timestamp": "2025-07-26T14:25:50.223425",
+      "details": {
+        "status_code": 400
+      }
+    },
+    {
+      "test": "User Profile Retrieval",
+      "success": false,
+      "message": "Failed to retrieve user profile: {\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"Document \\\"projects/hhhh-1c48d/databases/(default)/documents/users/GwNR3I5anJPYiykDL0Sezp63s213\\\" not found.\",\n    \"status\": \"NOT_FOUND\"\n  }\n}\n",
+      "timestamp": "2025-07-26T14:25:50.329109",
+      "details": {
+        "status_code": 404
+      }
+    },
+    {
+      "test": "Verification Status Sync",
+      "success": false,
+      "message": "Failed to get profile status: {\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"Document \\\"projects/hhhh-1c48d/databases/(default)/documents/users/GwNR3I5anJPYiykDL0Sezp63s213\\\" not found.\",\n    \"status\": \"NOT_FOUND\"\n  }\n}\n",
+      "timestamp": "2025-07-26T14:25:50.555111",
+      "details": {}
+    },
+    {
+      "test": "Protected Route Logic",
+      "success": false,
+      "message": "Some protected route tests failed",
+      "timestamp": "2025-07-26T14:25:50.773082",
+      "details": {
+        "test_results": [
+          {
+            "test": "No Authentication",
+            "passed": false,
+            "description": "Unauthenticated user should be blocked",
+            "status_code": 404
+          },
+          {
+            "test": "Valid Token, Unverified Email",
+            "passed": false,
+            "description": "Authenticated but unverified user should be redirected to verification",
+            "status_code": 404
+          }
+        ]
+      }
+    }
+  ],
+  "test_results": [
+    {
+      "test": "Firebase Configuration",
+      "success": true,
+      "message": "Firebase configuration is valid",
+      "timestamp": "2025-07-26T14:25:49.471853",
+      "details": {
+        "config": {
+          "apiKey": "AIzaSyCxqQDcAIY28mj3KVPiBBOLwNLTi5lLRKE",
+          "authDomain": "hhhh-1c48d.firebaseapp.com",
+          "projectId": "hhhh-1c48d",
+          "storageBucket": "hhhh-1c48d.firebasestorage.app",
+          "messagingSenderId": "884366665443",
+          "appId": "1:884366665443:web:213ca6c3db1fcf541447d6"
+        }
+      }
+    },
+    {
+      "test": "User Registration",
+      "success": true,
+      "message": "User registered successfully",
+      "timestamp": "2025-07-26T14:25:49.760452",
+      "details": {
+        "email": "test_user_1753539949@example.com",
+        "uid": "GwNR3I5anJPYiykDL0Sezp63s213",
+        "emailVerified": false
+      }
+    },
+    {
+      "test": "Email Verification Sending",
+      "success": true,
+      "message": "Verification email sent successfully",
+      "timestamp": "2025-07-26T14:25:50.131633",
+      "details": {
+        "email": "test_user_1753539949@example.com",
+        "kind": "identitytoolkit#GetOobConfirmationCodeResponse"
+      }
+    },
+    {
+      "test": "User Profile Creation",
+      "success": false,
+      "message": "Failed to create user profile: {\n  \"error\": {\n    \"code\": 400,\n    \"message\": \"Document parent name \\\"projects/hhhh-1c48d/databases/(default)/documents/users\\\" lacks \\\"/\\\" at index 55.\",\n    \"status\": \"INVALID_ARGUMENT\"\n  }\n}\n",
+      "timestamp": "2025-07-26T14:25:50.223425",
+      "details": {
+        "status_code": 400
+      }
+    },
+    {
+      "test": "User Profile Retrieval",
+      "success": false,
+      "message": "Failed to retrieve user profile: {\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"Document \\\"projects/hhhh-1c48d/databases/(default)/documents/users/GwNR3I5anJPYiykDL0Sezp63s213\\\" not found.\",\n    \"status\": \"NOT_FOUND\"\n  }\n}\n",
+      "timestamp": "2025-07-26T14:25:50.329109",
+      "details": {
+        "status_code": 404
+      }
+    },
+    {
+      "test": "User Login",
+      "success": true,
+      "message": "User login successful",
+      "timestamp": "2025-07-26T14:25:50.398676",
+      "details": {
+        "email": "test_user_1753539949@example.com",
+        "emailVerified": false,
+        "uid": "GwNR3I5anJPYiykDL0Sezp63s213"
+      }
+    },
+    {
+      "test": "Verification Status Sync",
+      "success": false,
+      "message": "Failed to get profile status: {\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"Document \\\"projects/hhhh-1c48d/databases/(default)/documents/users/GwNR3I5anJPYiykDL0Sezp63s213\\\" not found.\",\n    \"status\": \"NOT_FOUND\"\n  }\n}\n",
+      "timestamp": "2025-07-26T14:25:50.555111",
+      "details": {}
+    },
+    {
+      "test": "Server Creation Data Integrity",
+      "success": true,
+      "message": "Server created with proper data integrity",
+      "timestamp": "2025-07-26T14:25:50.647012",
+      "details": {
+        "server_id": "xi9pSyPeHls9vW8gxE1W",
+        "owner_id": "GwNR3I5anJPYiykDL0Sezp63s213",
+        "has_required_fields": true
+      }
+    },
+    {
+      "test": "Protected Route Logic",
+      "success": false,
+      "message": "Some protected route tests failed",
+      "timestamp": "2025-07-26T14:25:50.773082",
+      "details": {
+        "test_results": [
+          {
+            "test": "No Authentication",
+            "passed": false,
+            "description": "Unauthenticated user should be blocked",
+            "status_code": 404
+          },
+          {
+            "test": "Valid Token, Unverified Email",
+            "passed": false,
+            "description": "Authenticated but unverified user should be redirected to verification",
+            "status_code": 404
+          }
+        ]
+      }
+    }
+  ]
+}
