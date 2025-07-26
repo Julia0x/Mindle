@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, Navigate } from 'react-router-dom';
 import { ArrowLeft, Mail, RefreshCw, CheckCircle, AlertCircle } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 import { sendEmailVerification, reload } from 'firebase/auth';
-import { auth } from '../config/firebase';
 
 const EmailVerificationPage: React.FC = () => {
   const [isCheckingVerification, setIsCheckingVerification] = useState(false);
