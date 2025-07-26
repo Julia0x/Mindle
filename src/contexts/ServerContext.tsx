@@ -140,10 +140,10 @@ export const ServerProvider: React.FC<{ children: React.ReactNode }> = ({ childr
       );
 
       // Save to Firestore
-      const docRef = await addDoc(collection(db, 'servers'), serverData);
+      const docRef = await addDoc(collection(db, 'servers'), cleanServerData);
       
       const newServer = {
-        ...serverData,
+        ...cleanServerData,
         id: docRef.id,
       } as GeneratedServer;
 
