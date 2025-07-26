@@ -97,62 +97,60 @@ const CreateServerPage: React.FC = () => {
 
   if (step === 'generating') {
     return (
-      <DashboardLayout>
-        <div className="flex items-center justify-center min-h-[60vh] px-4">
-          <div className="max-w-md w-full text-center">
-            <div className="bg-white border border-gray-200 rounded-lg p-8">
-              {/* AI Animation */}
-              <div className="relative w-20 h-20 mx-auto mb-6">
-                <div className="absolute inset-0 bg-black rounded-full animate-pulse"></div>
-                <div className="absolute inset-2 bg-white rounded-full flex items-center justify-center">
-                  <Bot className="w-8 h-8 text-black animate-bounce" />
-                </div>
+      <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center px-4">
+        <div className="max-w-md w-full">
+          <div className="bg-white border border-gray-200 rounded-lg p-8 shadow-2xl">
+            {/* AI Animation */}
+            <div className="relative w-20 h-20 mx-auto mb-6">
+              <div className="absolute inset-0 bg-black rounded-full animate-pulse"></div>
+              <div className="absolute inset-2 bg-white rounded-full flex items-center justify-center">
+                <Bot className="w-8 h-8 text-black animate-bounce" />
               </div>
+            </div>
 
-              <h2 className="text-2xl font-bold text-black mb-2 uppercase tracking-wide">
-                AI is Building Your Server
-              </h2>
-              <p className="text-gray-600 mb-6 font-medium">
-                Creating "{formData.serverName}" with all channels, roles, and permissions...
-              </p>
+            <h2 className="text-2xl font-bold text-black mb-2 uppercase tracking-wide">
+              AI is Building Your Server
+            </h2>
+            <p className="text-gray-600 mb-6 font-medium">
+              Creating "{formData.serverName}" with all channels, roles, and permissions...
+            </p>
 
-              {/* Progress Bar */}
-              <div className="w-full bg-gray-200 rounded-full h-2 mb-4">
-                <div 
-                  className="bg-black h-2 rounded-full transition-all duration-500 ease-out"
-                  style={{ width: `${progress}%` }}
-                ></div>
+            {/* Progress Bar */}
+            <div className="w-full bg-gray-200 rounded-full h-2 mb-4">
+              <div 
+                className="bg-black h-2 rounded-full transition-all duration-500 ease-out"
+                style={{ width: `${progress}%` }}
+              ></div>
+            </div>
+            <p className="text-sm text-gray-600 font-medium">{Math.round(progress)}% Complete</p>
+
+            {/* Generation Steps */}
+            <div className="mt-8 space-y-3 text-left">
+              <div className={`flex items-center space-x-3 ${progress > 20 ? 'text-green-600' : 'text-gray-400'}`}>
+                <div className={`w-2 h-2 rounded-full ${progress > 20 ? 'bg-green-600' : 'bg-gray-300'}`}></div>
+                <span className="text-sm font-medium">Analyzing your requirements</span>
               </div>
-              <p className="text-sm text-gray-600 font-medium">{Math.round(progress)}% Complete</p>
-
-              {/* Generation Steps */}
-              <div className="mt-8 space-y-3 text-left">
-                <div className={`flex items-center space-x-3 ${progress > 20 ? 'text-green-600' : 'text-gray-400'}`}>
-                  <div className={`w-2 h-2 rounded-full ${progress > 20 ? 'bg-green-600' : 'bg-gray-300'}`}></div>
-                  <span className="text-sm font-medium">Analyzing your requirements</span>
-                </div>
-                <div className={`flex items-center space-x-3 ${progress > 40 ? 'text-green-600' : 'text-gray-400'}`}>
-                  <div className={`w-2 h-2 rounded-full ${progress > 40 ? 'bg-green-600' : 'bg-gray-300'}`}></div>
-                  <span className="text-sm font-medium">Creating roles and permissions</span>
-                </div>
-                <div className={`flex items-center space-x-3 ${progress > 60 ? 'text-green-600' : 'text-gray-400'}`}>
-                  <div className={`w-2 h-2 rounded-full ${progress > 60 ? 'bg-green-600' : 'bg-gray-300'}`}></div>
-                  <span className="text-sm font-medium">Designing channels and categories</span>
-                </div>
-                <div className={`flex items-center space-x-3 ${progress > 80 ? 'text-green-600' : 'text-gray-400'}`}>
-                  <div className={`w-2 h-2 rounded-full ${progress > 80 ? 'bg-green-600' : 'bg-gray-300'}`}></div>
-                  <span className="text-sm font-medium">Finalizing server structure</span>
-                </div>
+              <div className={`flex items-center space-x-3 ${progress > 40 ? 'text-green-600' : 'text-gray-400'}`}>
+                <div className={`w-2 h-2 rounded-full ${progress > 40 ? 'bg-green-600' : 'bg-gray-300'}`}></div>
+                <span className="text-sm font-medium">Creating roles and permissions</span>
               </div>
-
-              {/* Credits Info */}
-              <div className="mt-6 p-3 bg-gray-50 rounded-lg">
-                <p className="text-xs text-gray-600 font-medium">10 credits will be deducted upon completion</p>
+              <div className={`flex items-center space-x-3 ${progress > 60 ? 'text-green-600' : 'text-gray-400'}`}>
+                <div className={`w-2 h-2 rounded-full ${progress > 60 ? 'bg-green-600' : 'bg-gray-300'}`}></div>
+                <span className="text-sm font-medium">Designing channels and categories</span>
               </div>
+              <div className={`flex items-center space-x-3 ${progress > 80 ? 'text-green-600' : 'text-gray-400'}`}>
+                <div className={`w-2 h-2 rounded-full ${progress > 80 ? 'bg-green-600' : 'bg-gray-300'}`}></div>
+                <span className="text-sm font-medium">Finalizing server structure</span>
+              </div>
+            </div>
+
+            {/* Credits Info */}
+            <div className="mt-6 p-3 bg-gray-50 rounded-lg">
+              <p className="text-xs text-gray-600 font-medium">10 credits will be deducted upon completion</p>
             </div>
           </div>
         </div>
-      </DashboardLayout>
+      </div>
     );
   }
 
