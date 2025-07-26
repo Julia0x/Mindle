@@ -18,6 +18,21 @@ class GeminiService {
 
   async generateServer(request: ServerCreationRequest): Promise<AIServerResponse> {
     try {
+      const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
+      if (!apiKey || apiKey === 'your_api_key_here') {
+        return {
+          success: false,
+          error: 'Gemini API key not configured. Please add your API key to enable server generation.'
+        };
+      }
+
+      if (!this.model) {
+        return {
+          success: false,
+          error: 'AI service not properly initialized.'
+        };
+      }
+
       const prompt = this.buildServerGenerationPrompt(request);
       
       const result = await this.model.generateContent(prompt);
