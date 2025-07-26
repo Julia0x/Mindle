@@ -236,7 +236,7 @@ Generate for: ${request.prompt}`;
         topic: channel.topic || channel.description || '',
         isNSFW: channel.isNSFW || false,
         slowMode: channel.slowMode || 0,
-        userLimit: channel.type === 'voice' ? (channel.userLimit || 0) : undefined
+        userLimit: channel.type === 'voice' ? (channel.userLimit || null) : null
       }))
     }));
   }
