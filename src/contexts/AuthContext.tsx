@@ -88,8 +88,21 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     const userDoc = await getDoc(doc(db, 'users', user.uid));
     if (userDoc.exists()) {
       const profileData = userDoc.data() as UserProfile;
+      
+      // Sync verification status from Firebase Auth
+      const isVerified = user.emailVerified;
+      if (profileData.verified !== isVerified) {
+        // Update Firestore if verification status changed
+        await updateDoc(doc(db, 'users', user.uid), {
+          verified: isVerified,
+          updatedAt: new Date(),
+        });
+        profileData.verified = isVerified;
+      }
+      
       setUserProfile({
         ...profileData,
+        verified: isVerified, // Always use Firebase Auth status
         createdAt: profileData.createdAt instanceof Date ? profileData.createdAt : new Date(profileData.createdAt),
         updatedAt: profileData.updatedAt instanceof Date ? profileData.updatedAt : new Date(profileData.updatedAt),
       });
