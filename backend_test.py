@@ -241,7 +241,7 @@ class FirebaseAuthTester:
                 }
             }
             
-            response = requests.post(
+            response = requests.patch(
                 f"{self.firestore_url}/users/{self.user_uid}",
                 json=profile_data,
                 headers={"Authorization": f"Bearer {self.user_id_token}"}
