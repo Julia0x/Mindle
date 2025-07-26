@@ -44,12 +44,15 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
     const user = userCredential.user;
 
+    // Send email verification immediately after registration
+    await sendEmailVerification(user);
+
     const userProfile: UserProfile = {
       uid: user.uid,
       email: user.email!,
       firstName,
       lastName,
-      verified: false,
+      verified: false, // Will be updated when email is verified
       credits: 100, // Starting credits
       isPro: false,
       isAdmin: false,
