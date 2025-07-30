@@ -61,7 +61,7 @@ const ServerPreview: React.FC<ServerPreviewProps> = ({ server, className = '' })
               </p>
             </div>
           </div>
-          <Settings className="w-5 h-5 text-gray-500 hover:text-black cursor-pointer transition-colors" />
+
         </div>
       </div>
 
