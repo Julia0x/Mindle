@@ -248,6 +248,58 @@ Generate for: ${request.prompt}`;
       // Flatten channels from categories
       server.channels = categories.flatMap(cat => cat.channels || []);
 
+      // Find channels for bot features and assign them
+      const botChannelAssignments = this.assignBotChannels(server.channels || [], aiData.botChannelRecommendations);
+      
+      // Add enhanced mindleBotSetup with assigned channels
+      (server as any).mindleBotSetup = {
+        enabled: true,
+        greetingMessages: {
+          enabled: true,
+          channelId: botChannelAssignments.welcomeChannelId,
+          message: `Welcome to ${server.name}! 🎉 We're glad to have you here!`,
+          embedColor: '#5865F2'
+        },
+        leaveMessages: {
+          enabled: true,
+          channelId: botChannelAssignments.welcomeChannelId, // Use same channel as welcome for consistency
+          message: `{user} has left the server. Goodbye! 👋`,
+          embedColor: '#ED4245'
+        },
+        autoModeration: {
+          enabled: true,
+          spamProtection: true,
+          linkFiltering: false,
+          profanityFilter: true
+        },
+        levelingSystem: {
+          enabled: true,
+          levelUpChannelId: botChannelAssignments.levelUpChannelId,
+          levelUpMessage: `🎉 Congratulations {user}! You've reached level {level}!`
+        },
+        customCommands: {
+          enabled: true,
+          commands: [
+            {
+              trigger: '!rules',
+              response: `Please follow our server rules and be respectful to all members! Check ${botChannelAssignments.rulesChannelName ? `#${botChannelAssignments.rulesChannelName}` : '#rules'} for more details.`,
+              permissions: ['@everyone']
+            },
+            {
+              trigger: '!welcome',
+              response: `Welcome to ${server.name}! Check out our channels and have fun!`,
+              permissions: ['@everyone']
+            },
+            {
+              trigger: '!level',
+              response: `Check your current level and XP! Level up by being active in the server.`,
+              permissions: ['@everyone']
+            }
+          ]
+        },
+        assignedChannels: botChannelAssignments
+      };
+
       return server;
     } catch (error) {
       console.error('Error parsing AI response:', error);
