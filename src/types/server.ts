@@ -92,6 +92,42 @@ export interface GeneratedServer {
   tags: string[];
   region: string;
   boostLevel: 0 | 1 | 2 | 3;
+  
+  // Upcoming Features - Mindle Bot Setup
+  mindleBotSetup?: {
+    enabled: boolean;
+    greetingMessages: {
+      enabled: boolean;
+      channelId?: string;
+      message: string;
+      embedColor?: string;
+    };
+    leaveMessages: {
+      enabled: boolean;
+      channelId?: string;
+      message: string;
+      embedColor?: string;
+    };
+    autoModeration: {
+      enabled: boolean;
+      spamProtection: boolean;
+      linkFiltering: boolean;
+      profanityFilter: boolean;
+    };
+    levelingSystem: {
+      enabled: boolean;
+      levelUpChannelId?: string;
+      levelUpMessage: string;
+    };
+    customCommands: {
+      enabled: boolean;
+      commands: Array<{
+        trigger: string;
+        response: string;
+        permissions: string[];
+      }>;
+    };
+  };
 }
 
 export interface ServerCreationRequest {
