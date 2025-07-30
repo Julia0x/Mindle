@@ -12,6 +12,7 @@ import DashboardPage from './pages/DashboardPage';
 import ServersPage from './pages/ServersPage';
 import CreateServerPage from './pages/CreateServerPage';
 import ServerDetailsPage from './pages/ServerDetailsPage';
+import MindleBotPage from './pages/MindleBotPage';
 
 function App() {
   return (
