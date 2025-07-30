@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { ArrowLeft, Edit3, Trash2, Download, Share2, Crown, Users, Settings, MessageSquare } from 'lucide-react';
+import { ArrowLeft, Trash2, Download, Share2, Crown, Users, MessageSquare, Copy, Check } from 'lucide-react';
 import { useServers } from '../contexts/ServerContext';
 import ServerPreview from '../components/ServerPreview';
 import DashboardLayout from '../components/DashboardLayout';
