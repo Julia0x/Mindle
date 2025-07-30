@@ -40,6 +40,23 @@ const ServerDetailsPage: React.FC = () => {
     }
   };
 
+  const copySetupCommand = async () => {
+    if (serverId) {
+      const setupCommand = `/setup ${serverId}`;
+      await navigator.clipboard.writeText(setupCommand);
+      setCopiedSetup(true);
+      setTimeout(() => setCopiedSetup(false), 2000);
+    }
+  };
+
+  const copyServerId = async () => {
+    if (serverId) {
+      await navigator.clipboard.writeText(serverId);
+      setCopiedServerId(true);
+      setTimeout(() => setCopiedServerId(false), 2000);
+    }
+  };
+
   return (
     <DashboardLayout>
       <div className="p-4 lg:p-8">
