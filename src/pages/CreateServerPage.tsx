@@ -126,20 +126,28 @@ const CreateServerPage: React.FC = () => {
 
             {/* Generation Steps */}
             <div className="mt-8 space-y-3 text-left">
-              <div className={`flex items-center space-x-3 ${progress > 20 ? 'text-green-600' : 'text-gray-400'}`}>
-                <div className={`w-2 h-2 rounded-full ${progress > 20 ? 'bg-green-600' : 'bg-gray-300'}`}></div>
+              <div className={`flex items-center space-x-3 ${progress > 15 ? 'text-green-600' : 'text-gray-400'}`}>
+                <div className={`w-2 h-2 rounded-full ${progress > 15 ? 'bg-green-600' : 'bg-gray-300'}`}></div>
                 <span className="text-sm font-medium">Analyzing your requirements</span>
               </div>
-              <div className={`flex items-center space-x-3 ${progress > 40 ? 'text-green-600' : 'text-gray-400'}`}>
-                <div className={`w-2 h-2 rounded-full ${progress > 40 ? 'bg-green-600' : 'bg-gray-300'}`}></div>
+              <div className={`flex items-center space-x-3 ${progress > 30 ? 'text-green-600' : 'text-gray-400'}`}>
+                <div className={`w-2 h-2 rounded-full ${progress > 30 ? 'bg-green-600' : 'bg-gray-300'}`}></div>
                 <span className="text-sm font-medium">Creating roles and permissions</span>
+              </div>
+              <div className={`flex items-center space-x-3 ${progress > 45 ? 'text-green-600' : 'text-gray-400'}`}>
+                <div className={`w-2 h-2 rounded-full ${progress > 45 ? 'bg-green-600' : 'bg-gray-300'}`}></div>
+                <span className="text-sm font-medium">Designing channels and categories</span>
               </div>
               <div className={`flex items-center space-x-3 ${progress > 60 ? 'text-green-600' : 'text-gray-400'}`}>
                 <div className={`w-2 h-2 rounded-full ${progress > 60 ? 'bg-green-600' : 'bg-gray-300'}`}></div>
-                <span className="text-sm font-medium">Designing channels and categories</span>
+                <span className="text-sm font-medium">Setting up bot features</span>
               </div>
-              <div className={`flex items-center space-x-3 ${progress > 80 ? 'text-green-600' : 'text-gray-400'}`}>
-                <div className={`w-2 h-2 rounded-full ${progress > 80 ? 'bg-green-600' : 'bg-gray-300'}`}></div>
+              <div className={`flex items-center space-x-3 ${progress > 75 ? 'text-green-600' : 'text-gray-400'}`}>
+                <div className={`w-2 h-2 rounded-full ${progress > 75 ? 'bg-green-600' : 'bg-gray-300'}`}></div>
+                <span className="text-sm font-medium">Configuring welcome & leveling system</span>
+              </div>
+              <div className={`flex items-center space-x-3 ${progress > 90 ? 'text-green-600' : 'text-gray-400'}`}>
+                <div className={`w-2 h-2 rounded-full ${progress > 90 ? 'bg-green-600' : 'bg-gray-300'}`}></div>
                 <span className="text-sm font-medium">Finalizing server structure</span>
               </div>
             </div>
