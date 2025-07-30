@@ -414,6 +414,47 @@ Generate for: ${request.prompt}`;
   private generateId(): string {
     return Date.now().toString(36) + Math.random().toString(36).substr(2);
   }
+
+  private assignBotChannels(channels: any[], recommendations?: any): any {
+    // Find channels for bot features based on name patterns and bot feature flags
+    const welcomeChannel = channels.find(ch => 
+      ch.botFeatures?.welcomeChannel || 
+      ['welcome', 'general', 'lobby', 'entrance'].some(name => ch.name.includes(name))
+    );
+    
+    const levelUpChannel = channels.find(ch => 
+      ch.botFeatures?.levelUpChannel || 
+      ['level', 'level-up', 'levelup', 'levels', 'general', 'announcements'].some(name => ch.name.includes(name))
+    );
+    
+    const announcementChannel = channels.find(ch => 
+      ch.botFeatures?.announcementChannel || 
+      ['announcement', 'announcements', 'news', 'updates'].some(name => ch.name.includes(name))
+    );
+    
+    const rulesChannel = channels.find(ch => 
+      ch.botFeatures?.rulesChannel || 
+      ['rules', 'rule', 'guidelines', 'info'].some(name => ch.name.includes(name))
+    );
+    
+    const generalChannel = channels.find(ch => 
+      ch.botFeatures?.generalChannel || 
+      ['general', 'chat', 'main', 'discussion'].some(name => ch.name.includes(name))
+    ) || channels.find(ch => ch.type === 'text'); // Fallback to first text channel
+
+    return {
+      welcomeChannelId: welcomeChannel?.id || generalChannel?.id,
+      welcomeChannelName: welcomeChannel?.name || generalChannel?.name,
+      levelUpChannelId: levelUpChannel?.id || generalChannel?.id,
+      levelUpChannelName: levelUpChannel?.name || generalChannel?.name,
+      announcementChannelId: announcementChannel?.id || generalChannel?.id,
+      announcementChannelName: announcementChannel?.name || generalChannel?.name,
+      rulesChannelId: rulesChannel?.id || generalChannel?.id,
+      rulesChannelName: rulesChannel?.name || generalChannel?.name,
+      generalChannelId: generalChannel?.id,
+      generalChannelName: generalChannel?.name
+    };
+  }
 }
 
 export const geminiService = new GeminiService();
