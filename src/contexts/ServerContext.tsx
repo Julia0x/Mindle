@@ -150,18 +150,18 @@ export const ServerProvider: React.FC<{ children: React.ReactNode }> = ({ childr
         banner: aiResponse.server?.banner || null,
         inviteCode: aiResponse.server?.inviteCode || null,
         
-        // Upcoming Features - Mindle Bot Setup (initialized with defaults)
-        mindleBotSetup: {
+        // Mindle Bot Setup is now handled by the Gemini service and included in aiResponse.server
+        mindleBotSetup: aiResponse.server?.mindleBotSetup || {
           enabled: true,
           greetingMessages: {
             enabled: true,
-            channelId: null, // Will be set to general channel during setup
+            channelId: null,
             message: `Welcome to ${aiResponse.server?.name || request.name}! 🎉 We're glad to have you here!`,
             embedColor: '#5865F2'
           },
           leaveMessages: {
             enabled: true,
-            channelId: null, // Will be set to general channel during setup
+            channelId: null,
             message: `{user} has left the server. Goodbye! 👋`,
             embedColor: '#ED4245'
           },
