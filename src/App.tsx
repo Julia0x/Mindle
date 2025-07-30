@@ -57,6 +57,14 @@ function App() {
                   </ProtectedRoute>
                 } 
               />
+              <Route 
+                path="/mindle-bot" 
+                element={
+                  <ProtectedRoute>
+                    <MindleBotPage />
+                  </ProtectedRoute>
+                } 
+              />
             </Routes>
           </div>
         </ServerProvider>
