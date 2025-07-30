@@ -1,27 +1,61 @@
 {
   "total_tests": 9,
-  "passed": 8,
-  "failed": 1,
-  "success_rate": 88.88888888888889,
+  "passed": 4,
+  "failed": 5,
+  "success_rate": 44.44444444444444,
   "critical_issues": [
+    {
+      "test": "User Profile Creation",
+      "success": false,
+      "message": "Failed to create user profile: {\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Missing or insufficient permissions.\",\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "timestamp": "2025-07-30T11:19:15.959084",
+      "details": {
+        "status_code": 403
+      }
+    },
+    {
+      "test": "User Profile Retrieval",
+      "success": false,
+      "message": "Failed to retrieve user profile: {\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Missing or insufficient permissions.\",\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "timestamp": "2025-07-30T11:19:16.071471",
+      "details": {
+        "status_code": 403
+      }
+    },
+    {
+      "test": "Verification Status Sync",
+      "success": false,
+      "message": "Failed to get profile status: {\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Missing or insufficient permissions.\",\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "timestamp": "2025-07-30T11:19:16.254921",
+      "details": {}
+    },
+    {
+      "test": "Server Creation Data Integrity",
+      "success": false,
+      "message": "Failed to create server: {\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Missing or insufficient permissions.\",\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "timestamp": "2025-07-30T11:19:16.352095",
+      "details": {
+        "status_code": 403
+      }
+    },
     {
       "test": "Protected Route Logic",
       "success": false,
       "message": "Some protected route tests failed",
-      "timestamp": "2025-07-26T14:26:08.919541",
+      "timestamp": "2025-07-30T11:19:16.487682",
       "details": {
         "test_results": [
           {
             "test": "No Authentication",
-            "passed": false,
+            "passed": true,
             "description": "Unauthenticated user should be blocked",
-            "status_code": 200
+            "status_code": 403
           },
           {
             "test": "Valid Token, Unverified Email",
-            "passed": true,
+            "passed": false,
             "description": "Authenticated but unverified user should be redirected to verification",
-            "status_code": 200
+            "status_code": 403
           }
         ]
       }
@@ -32,7 +66,7 @@
       "test": "Firebase Configuration",
       "success": true,
       "message": "Firebase configuration is valid",
-      "timestamp": "2025-07-26T14:26:07.677078",
+      "timestamp": "2025-07-30T11:19:15.073919",
       "details": {
         "config": {
           "apiKey": "AIzaSyCxqQDcAIY28mj3KVPiBBOLwNLTi5lLRKE",
@@ -48,10 +82,10 @@
       "test": "User Registration",
       "success": true,
       "message": "User registered successfully",
-      "timestamp": "2025-07-26T14:26:07.980662",
+      "timestamp": "2025-07-30T11:19:15.331606",
       "details": {
-        "email": "test_user_1753539967@example.com",
-        "uid": "Uj8itv1nCsZPA4TCupCA5SFe5Ox1",
+        "email": "test_user_1753874354@example.com",
+        "uid": "s0HDL07B1PQhlSA7cFlE6iwGskr2",
         "emailVerified": false
       }
     },
@@ -59,84 +93,75 @@
       "test": "Email Verification Sending",
       "success": true,
       "message": "Verification email sent successfully",
-      "timestamp": "2025-07-26T14:26:08.341008",
+      "timestamp": "2025-07-30T11:19:15.731396",
       "details": {
-        "email": "test_user_1753539967@example.com",
+        "email": "test_user_1753874354@example.com",
         "kind": "identitytoolkit#GetOobConfirmationCodeResponse"
       }
     },
     {
       "test": "User Profile Creation",
-      "success": true,
-      "message": "User profile created successfully in Firestore",
-      "timestamp": "2025-07-26T14:26:08.464849",
+      "success": false,
+      "message": "Failed to create user profile: {\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Missing or insufficient permissions.\",\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "timestamp": "2025-07-30T11:19:15.959084",
       "details": {
-        "uid": "Uj8itv1nCsZPA4TCupCA5SFe5Ox1",
-        "email": "test_user_1753539967@example.com"
+        "status_code": 403
       }
     },
     {
       "test": "User Profile Retrieval",
-      "success": true,
-      "message": "User profile retrieved successfully",
-      "timestamp": "2025-07-26T14:26:08.529724",
+      "success": false,
+      "message": "Failed to retrieve user profile: {\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Missing or insufficient permissions.\",\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "timestamp": "2025-07-30T11:19:16.071471",
       "details": {
-        "uid": "Uj8itv1nCsZPA4TCupCA5SFe5Ox1",
-        "email": "test_user_1753539967@example.com",
-        "verified": false,
-        "credits": "100"
+        "status_code": 403
       }
     },
     {
       "test": "User Login",
       "success": true,
       "message": "User login successful",
-      "timestamp": "2025-07-26T14:26:08.583459",
+      "timestamp": "2025-07-30T11:19:16.144409",
       "details": {
-        "email": "test_user_1753539967@example.com",
+        "email": "test_user_1753874354@example.com",
         "emailVerified": false,
-        "uid": "Uj8itv1nCsZPA4TCupCA5SFe5Ox1"
+        "uid": "s0HDL07B1PQhlSA7cFlE6iwGskr2"
       }
     },
     {
       "test": "Verification Status Sync",
-      "success": true,
-      "message": "Verification status synchronized correctly",
-      "timestamp": "2025-07-26T14:26:08.692848",
-      "details": {
-        "auth_verified": false,
-        "profile_verified": false
-      }
+      "success": false,
+      "message": "Failed to get profile status: {\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Missing or insufficient permissions.\",\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "timestamp": "2025-07-30T11:19:16.254921",
+      "details": {}
     },
     {
       "test": "Server Creation Data Integrity",
-      "success": true,
-      "message": "Server created with proper data integrity",
-      "timestamp": "2025-07-26T14:26:08.782449",
+      "success": false,
+      "message": "Failed to create server: {\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Missing or insufficient permissions.\",\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "timestamp": "2025-07-30T11:19:16.352095",
       "details": {
-        "server_id": "1753539968",
-        "owner_id": "Uj8itv1nCsZPA4TCupCA5SFe5Ox1",
-        "has_required_fields": true
+        "status_code": 403
       }
     },
     {
       "test": "Protected Route Logic",
       "success": false,
       "message": "Some protected route tests failed",
-      "timestamp": "2025-07-26T14:26:08.919541",
+      "timestamp": "2025-07-30T11:19:16.487682",
       "details": {
         "test_results": [
           {
             "test": "No Authentication",
-            "passed": false,
+            "passed": true,
             "description": "Unauthenticated user should be blocked",
-            "status_code": 200
+            "status_code": 403
           },
           {
             "test": "Valid Token, Unverified Email",
-            "passed": true,
+            "passed": false,
             "description": "Authenticated but unverified user should be redirected to verification",
-            "status_code": 200
+            "status_code": 403
           }
         ]
       }
