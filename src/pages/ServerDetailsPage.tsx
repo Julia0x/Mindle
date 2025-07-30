@@ -10,6 +10,8 @@ const ServerDetailsPage: React.FC = () => {
   const navigate = useNavigate();
   const { getServer, deleteServer } = useServers();
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
+  const [copiedSetup, setCopiedSetup] = useState(false);
+  const [copiedServerId, setCopiedServerId] = useState(false);
   
   const server = serverId ? getServer(serverId) : null;
 
