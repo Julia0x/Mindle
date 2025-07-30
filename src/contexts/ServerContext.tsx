@@ -149,6 +149,49 @@ export const ServerProvider: React.FC<{ children: React.ReactNode }> = ({ childr
         icon: aiResponse.server?.icon || null,
         banner: aiResponse.server?.banner || null,
         inviteCode: aiResponse.server?.inviteCode || null,
+        
+        // Upcoming Features - Mindle Bot Setup (initialized with defaults)
+        mindleBotSetup: {
+          enabled: true,
+          greetingMessages: {
+            enabled: true,
+            channelId: null, // Will be set to general channel during setup
+            message: `Welcome to ${aiResponse.server?.name || request.name}! 🎉 We're glad to have you here!`,
+            embedColor: '#5865F2'
+          },
+          leaveMessages: {
+            enabled: true,
+            channelId: null, // Will be set to general channel during setup
+            message: `{user} has left the server. Goodbye! 👋`,
+            embedColor: '#ED4245'
+          },
+          autoModeration: {
+            enabled: true,
+            spamProtection: true,
+            linkFiltering: false,
+            profanityFilter: true
+          },
+          levelingSystem: {
+            enabled: true,
+            levelUpChannelId: null,
+            levelUpMessage: `🎉 Congratulations {user}! You've reached level {level}!`
+          },
+          customCommands: {
+            enabled: true,
+            commands: [
+              {
+                trigger: '!rules',
+                response: 'Please follow our server rules and be respectful to all members!',
+                permissions: ['@everyone']
+              },
+              {
+                trigger: '!welcome',
+                response: `Welcome to ${aiResponse.server?.name || request.name}! Check out our channels and have fun!`,
+                permissions: ['@everyone']
+              }
+            ]
+          }
+        },
       };
 
       // Double-check: remove any remaining undefined values (safety net)
