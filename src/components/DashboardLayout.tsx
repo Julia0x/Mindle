@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { Server, Plus, Settings, LogOut, Menu, X, User, CreditCard } from 'lucide-react';
+import { Server, Plus, Settings, LogOut, Menu, X, User, CreditCard, Bot, Sparkles } from 'lucide-react';
 import UserProfileModal from './UserProfileModal';
 
 interface DashboardLayoutProps {
