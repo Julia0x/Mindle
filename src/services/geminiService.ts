@@ -99,6 +99,7 @@ Generate a complete Discord server structure with the following requirements:
 4. CREATE CHANNELS within each category with specific purposes (15-30 total channels)
 5. SET APPROPRIATE PERMISSIONS for each role and channel
 6. ADD DETAILED DESCRIPTIONS for everything
+7. IDENTIFY SPECIAL CHANNELS for bot features (welcome, leveling, announcements, etc.)
 
 RESPOND WITH VALID JSON in this exact format:
 
@@ -137,6 +138,13 @@ RESPOND WITH VALID JSON in this exact format:
           "topic": "Channel topic/description",
           "isNSFW": false,
           "slowMode": 0,
+          "botFeatures": {
+            "welcomeChannel": false,
+            "levelUpChannel": false,
+            "announcementChannel": false,
+            "rulesChannel": false,
+            "generalChannel": false
+          },
           "permissions": [
             {
               "roleName": "Role Name",
@@ -153,7 +161,14 @@ RESPOND WITH VALID JSON in this exact format:
     "defaultNotifications": "only_mentions",
     "explicitContentFilter": "members_without_roles"
   },
-  "tags": ["tag1", "tag2", "tag3"]
+  "tags": ["tag1", "tag2", "tag3"],
+  "botChannelRecommendations": {
+    "welcomeChannelName": "welcome",
+    "levelUpChannelName": "level-ups",
+    "announcementChannelName": "announcements",
+    "rulesChannelName": "rules",
+    "generalChannelName": "general"
+  }
 }
 
 IMPORTANT GUIDELINES:
@@ -161,11 +176,13 @@ IMPORTANT GUIDELINES:
 - Create admin, moderator, and member roles minimum
 - Make channel names lowercase with hyphens
 - Include both text and voice channels
-- Add welcome/rules channels
+- Add welcome/rules channels and mark them with appropriate botFeatures flags
 - Set logical permission hierarchies
 - Include variety: announcement, general, topic-specific, voice channels
 - Make descriptions helpful and engaging
 - Use appropriate colors for roles (#FF0000 for admin, #00FF00 for mod, etc.)
+- Mark channels suitable for bot features (welcome messages, level-ups, etc.)
+- Ensure there's always a general channel for basic bot functionality
 
 Generate for: ${request.prompt}`;
   }
