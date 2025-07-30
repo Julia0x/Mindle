@@ -366,7 +366,14 @@ Generate for: ${request.prompt}`;
         topic: channel.topic || channel.description || '',
         isNSFW: Boolean(channel.isNSFW),
         slowMode: typeof channel.slowMode === 'number' ? channel.slowMode : 0,
-        userLimit: channel.type === 'voice' ? (typeof channel.userLimit === 'number' ? channel.userLimit : null) : null
+        userLimit: channel.type === 'voice' ? (typeof channel.userLimit === 'number' ? channel.userLimit : null) : null,
+        botFeatures: {
+          welcomeChannel: Boolean(channel.botFeatures?.welcomeChannel),
+          levelUpChannel: Boolean(channel.botFeatures?.levelUpChannel),
+          announcementChannel: Boolean(channel.botFeatures?.announcementChannel),
+          rulesChannel: Boolean(channel.botFeatures?.rulesChannel),
+          generalChannel: Boolean(channel.botFeatures?.generalChannel)
+        }
       }))
     }));
   }
