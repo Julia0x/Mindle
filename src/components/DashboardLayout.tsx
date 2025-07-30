@@ -90,6 +90,32 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
           </button>
         </div>
 
+        {/* Mindle Beta Section */}
+        <div className="space-y-2 mb-8 lg:mb-10">
+          <h3 className="text-gray-500 text-[10px] lg:text-xs uppercase tracking-wider font-medium mb-3 lg:mb-4 px-2 flex items-center">
+            <Sparkles className="w-3 h-3 mr-1" />
+            Mindle Beta
+          </h3>
+          
+          <button 
+            onClick={() => {
+              navigate('/mindle-bot');
+              setShowMobileSidebar(false);
+            }}
+            className={`w-full flex items-center space-x-3 px-3 py-2.5 lg:py-3 rounded-lg font-semibold text-xs lg:text-sm transition-all duration-200 ${
+              isActive('/mindle-bot') 
+                ? 'bg-black text-white' 
+                : 'text-gray-600 hover:bg-gray-100 hover:text-black'
+            }`}
+          >
+            <Bot className="w-4 h-4 lg:w-5 lg:h-5" />
+            <span className="uppercase tracking-wide">Multiguild Bot Setup</span>
+            <span className="ml-auto px-2 py-0.5 bg-purple-100 text-purple-600 text-[9px] lg:text-[10px] rounded-full font-bold uppercase">
+              Beta
+            </span>
+          </button>
+        </div>
+
         <div className="space-y-2">
           <h3 className="text-gray-500 text-[10px] lg:text-xs uppercase tracking-wider font-medium mb-3 lg:mb-4 px-2">Account</h3>
           <button 
